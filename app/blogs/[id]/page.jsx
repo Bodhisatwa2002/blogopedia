@@ -58,43 +58,7 @@ const page = ({ params }) => {
             height={480}
             alt="Image"
           />
-          <h1 className="my-8 text-[26px] font-semibold">Introduction</h1>
           <p>{data.description}</p>
-          <h3 className="my-5 text-[18px] font-semibold">
-            Step 1: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </h3>
-          <p className="my-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-            sint tenetur assumenda ipsum ab quidem optio harum dignissimos
-            incidunt itaque?
-          </p>
-          <p className="my-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-            sint tenetur assumenda ipsum ab quidem optio harum dignissimos
-            incidunt itaque?
-          </p>
-          <h3 className="my-5 text-[18px] font-semibold">
-            Step 2: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </h3>
-          <p className="my-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-            sint tenetur assumenda ipsum ab quidem optio harum dignissimos
-            incidunt itaque?
-          </p>
-          <p className="my-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-            sint tenetur assumenda ipsum ab quidem optio harum dignissimos
-            incidunt itaque?
-          </p>
-          <h3 className="my-5 text-[18px] font-semibold">
-            Conclusion: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </h3>
-          <p className="my-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-            sint tenetur assumenda ipsum ab quidem optio harum dignissimos
-            incidunt itaque?
-          </p>
-
           <div className="my-24">
             <p className="text-black font font-semibold my-4">
               Share this article on social media
