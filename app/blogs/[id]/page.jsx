@@ -2,20 +2,18 @@
 
 import { assets, blog_data } from "@/Assets/assets";
 import Footer from "@/Components/Footer";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 const page = ({ params }) => {
   const [data, setData] = useState(null);
-  const fetchBlogData = () => {
-    for (let i = 0; i < blog_data.length; i++) {
-      if (Number(params.id) === blog_data[i].id) {
-        setData(blog_data[i]);
-        console.log(blog_data[i]);
-        break;
-      }
-    }
+  const fetchBlogData = async () => {
+    const response = await axios.get("/api/blog", {
+      params: { id: params.id },
+    });
+    setData(response.data);
   };
   useEffect(() => {
     fetchBlogData();
@@ -42,10 +40,10 @@ const page = ({ params }) => {
           </h1>
           <Image
             className="mx-auto mt-6 border border-white rounded-full"
-            src={data.author_img}
+            src={data.authorImg}
             width={60}
             height={60}
-            alt=""
+            alt="Author Image"
           />
 
           <p className="mt-1 pb-5 text-lg max-w-[740px] mx-auto">
@@ -58,7 +56,7 @@ const page = ({ params }) => {
             src={data.image}
             width={800}
             height={480}
-            alt=""
+            alt="Image"
           />
           <h1 className="my-8 text-[26px] font-semibold">Introduction</h1>
           <p>{data.description}</p>

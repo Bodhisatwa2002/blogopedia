@@ -11,7 +11,7 @@ const page = () => {
     title: "",
     description: "",
     category: "Startup",
-    author: "Alex Bennett",
+    author: "Bodhisatwa",
     authorImg: "/author_img.png",
   });
 
@@ -38,7 +38,7 @@ const page = () => {
         title: "",
         description: "",
         category: "Startup",
-        author: "Alex Bennett",
+        author: "Bodhisatwa",
         authorImg: "/author_img.png",
       });
     } else {
