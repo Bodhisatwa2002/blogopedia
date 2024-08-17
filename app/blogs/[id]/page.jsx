@@ -1,5 +1,4 @@
 "use client";
-
 import { assets, blog_data } from "@/Assets/assets";
 import Footer from "@/Components/Footer";
 import axios from "axios";
@@ -7,17 +6,22 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const [data, setData] = useState(null);
+
   const fetchBlogData = async () => {
     const response = await axios.get("/api/blog", {
-      params: { id: params.id },
+      params: {
+        id: params.id,
+      },
     });
     setData(response.data);
   };
+
   useEffect(() => {
     fetchBlogData();
   }, []);
+
   return data ? (
     <>
       <div className="bg-gray-200 py-5 px-5 md:px-12 lg:px-28">
@@ -43,31 +47,34 @@ const page = ({ params }) => {
             src={data.authorImg}
             width={60}
             height={60}
-            alt="Author Image"
+            alt=""
           />
-
-          <p className="mt-1 pb-5 text-lg max-w-[740px] mx-auto">
+          <p className="mt-1 pb-2 text-lg max-w-[740px] mx-auto">
             {data.author}
           </p>
         </div>
-        <div className="mx-5 max-w-[800px] md:mx-auto mt-[-100px] mb-10">
-          <Image
-            className="border-4 border-white"
-            src={data.image}
-            width={800}
-            height={480}
-            alt="Image"
-          />
-          <p>{data.description}</p>
-          <div className="my-24">
-            <p className="text-black font font-semibold my-4">
-              Share this article on social media
-            </p>
-            <div className="flex">
-              <Image src={assets.facebook_icon} width={50} alt="" />
-              <Image src={assets.twitter_icon} width={50} alt="" />
-              <Image src={assets.googleplus_icon} width={50} alt="" />
-            </div>
+      </div>
+      <div className="mx-5 max-w-[800px] md:mx-auto mt-[-100px] mb-10">
+        <Image
+          className="border-4 border-white"
+          src={data.image}
+          width={800}
+          height={480}
+          alt=""
+        />
+
+        <div
+          className="blog-content"
+          dangerouslySetInnerHTML={{ __html: data.description }}
+        ></div>
+        <div className="my-24">
+          <p className="text-black font font-semibold my-4">
+            Share this article on social media
+          </p>
+          <div className="flex">
+            <Image src={assets.facebook_icon} width={50} alt="" />
+            <Image src={assets.twitter_icon} width={50} alt="" />
+            <Image src={assets.googleplus_icon} width={50} alt="" />
           </div>
         </div>
       </div>
@@ -78,4 +85,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;
